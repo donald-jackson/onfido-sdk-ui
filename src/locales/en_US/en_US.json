@@ -351,6 +351,27 @@
         "subtitle": "Scans and photocopies are not accepted",
         "title": "Upload passport photo page"
     },
+    "doc_video_capture": {
+        "instructions": {
+            "front_passport": "Front of passport",
+            "front_license": "Front of driver's license",
+            "front_id": "Front of national ID card",
+            "front_permit": "Front of residence permit",
+            "back_passport": "Back of passport",
+            "back_license": "Back of driver's license",
+            "back_id": "Back of national ID card",
+            "back_permit": "Back of residence permit",
+            "video_intro_title": "Record a video of your document",
+            "video_intro_subtitle": "Start recording and follow the instructions",
+            "video_tilt_title": "Slowly tilt your document to show light reflections",
+            "video_tilt_subtitle": "Press next step when complete",
+            "video_flip_title": "Now, flip your document to show its back",
+            "video_flip_subtitle": "Press done when complete"
+        },
+        "button_primary_next": "Next step",
+        "button_record_accessibility": "Start recording",
+        "button_stop_accessibility": "Done"
+    },
     "video_capture": {
         "body": "Position your face in the oval",
         "body_next": "When you're done, press next",

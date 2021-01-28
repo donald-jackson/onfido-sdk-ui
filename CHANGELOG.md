@@ -12,8 +12,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Added npm latest version badge.
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
-- Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 - Internal: Introduce integration tests for API endpoint integrations.
+- Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
+- Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
+- Internal: Refactor for better reusability of video capture components.
+- Public: Improvements in video capture steps.
 
 ### Changed
 

@@ -1,14 +1,13 @@
 import { h } from 'preact'
 import { connect } from 'react-redux'
-import { cleanFalsy } from '~utils/array'
-import Confirm from './Confirm'
+
+import { buildCaptureStateKey } from '~utils/redux'
 import { trackComponentAndMode, appendToTracking } from '../../Tracker'
 import { localised } from '../../locales'
+import Confirm from './Confirm'
 
-const captureKey = (...args) => cleanFalsy(args).join('_')
-
-const mapStateToProps = (state, { method, side }) => ({
-  capture: state.captures[captureKey(method, side)],
+const mapStateToProps = (state, { method, side, variant }) => ({
+  capture: state.captures[buildCaptureStateKey({ method, side, variant })],
   isFullScreen: state.globals.isFullScreen,
   imageQualityRetries: state.globals.imageQualityRetries,
 })
@@ -29,16 +28,25 @@ const DocumentBackWrapper = (props) => (
   <MapConfirm {...props} method="document" side="back" />
 )
 
+const DocumentVideoWrapper = (props) => (
+  <MapConfirm {...props} method="document" variant="video" />
+)
+
 const BaseFaceConfirm = (props) => <MapConfirm {...props} method="face" />
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
+const DocumentVideoConfirm = appendToTracking(
+  DocumentVideoWrapper,
+  'document_video'
+)
 const SelfieConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
-const VideoConfirm = appendToTracking(BaseFaceConfirm, 'video')
+const FaceVideoConfirm = appendToTracking(BaseFaceConfirm, 'face_video')
 
 export {
   DocumentFrontConfirm,
   DocumentBackConfirm,
+  DocumentVideoConfirm,
   SelfieConfirm,
-  VideoConfirm,
+  FaceVideoConfirm,
 }

@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Selfie from '../Photo/Selfie'
-import Video from '../Video'
+import FaceVideo from '../FaceVideo'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
@@ -12,7 +12,7 @@ import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { validateFile } from '~utils/file'
-import { getInactiveError } from '~utils/inactiveError.js'
+import { getInactiveError } from '~utils/inactiveError'
 import { localised } from '../../locales'
 import style from './style.scss'
 
@@ -102,7 +102,7 @@ class Face extends Component {
     }
     const cameraProps = {
       renderTitle: <PageTitle title={title} smaller />,
-      containerClassName: style.faceContainer,
+      cameraClassName: style.faceContainer,
       renderFallback: isDesktop
         ? this.renderCrossDeviceFallback
         : this.renderUploadFallback,
@@ -123,10 +123,9 @@ class Face extends Component {
       )
       if (requestedVariant === 'video') {
         return (
-          <Video
+          <FaceVideo
             {...cameraProps}
             onVideoCapture={this.handleVideoCapture}
-            ariaLabel={ariaLabelForSelfieCameraView}
           />
         )
       }
