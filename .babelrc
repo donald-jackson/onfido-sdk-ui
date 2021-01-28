@@ -9,7 +9,9 @@
           "proposals": true
         },
         "useBuiltIns": "usage",
-        "targets": "defaults"
+        "targets": {
+          "ie": 11
+        }
       }
     ]
   ],
