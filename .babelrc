@@ -1,20 +1,6 @@
 {
   "sourceMaps": true,
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "corejs": {
-          "version": "3",
-          "proposals": false
-        },
-        "useBuiltIns": "usage",
-        "targets": {
-          "ie": 11
-        }
-      }
-    ]
-  ],
+  "presets": [["@babel/preset-env"]],
   "plugins": [
     [
       "@babel/plugin-transform-react-jsx",
